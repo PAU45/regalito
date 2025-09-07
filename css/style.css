@@ -1,97 +1,317 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
+/* --- Carta San Valentín animada --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    color: azure;
+
+:root {
+    --primario: #fff;
+    --fondo: #ffebf2; 
+    --fondo-sobre: #ffe3ed; 
+    --solapa-sobre: #ffccd5; 
+    --cuerpo-sobre: #ffc1d1; 
+    --sombra: rgba(0, 0, 0, 0.2);
+    --texto: #003049; 
+    --corazon: #ff477e; 
+}
+
+body {
+    background: var(--fondo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.contenedor {
+    width: 400px;
+    margin-top: 74px;
+}
+
+.envoltura-sobre {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobre {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derecha {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
-    height: 82vh;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.carta {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenido {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+}
+
+.corazon:before {
+    top: -15px;
+}
+
+.corazon:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abierto .sobre::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abierto .corazon {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.carta.mostrar-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.cerrando-carta {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.carta.abierta {
+    z-index: 10000;
+}
+
+.envoltura-sobre.desactivar-sobre .sobre::before {
+    pointer-events: none;
+}
+
+/*Vista celular*/
+@media screen and (max-width:400px) {
+    .contenedor {
+        width: 300px;
+    }
+
+    .sobre {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobre::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
+
+
+.carta-titulo {
+    color: #FFD700;
+    text-align: center;
+    font-size: 2.8rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+   margin-top: 1270px;
+   margin-bottom: 40px; /* Aumenta el espacio debajo del título */
+    text-shadow: 2px 2px 8px #000, 0 0 20px #FFD70088;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: rgba(0,0,0,0.5);
+    border-radius: 12px;
+    padding: 12px 32px;
+    display: inline-block;
+}
+/* Efectos interactivos y de luces para el título principal */
+.main-title {
+    color: #FFD700;
+    text-align: center;
+    font-size: 3.2rem;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-top: 1204px;
+    margin-bottom: 32px;
+    text-shadow: 0 0 30px #FFD700, 0 0 60px #ffec8b, 0 0 80px #fff700, 2px 2px 12px #000;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 100;
+    background: rgba(0,0,0,0.85);
+    border-radius: 18px;
+    padding: 20px 48px;
+    display: inline-block;
+    box-shadow: 0 0 60px 20px #FFD70099, 0 0 80px 40px #fff70044;
+    animation: glowTitle 2s infinite alternate;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.main-title:hover {
+    transform: scale(1.07) rotate(-1deg);
+    box-shadow: 0 0 60px 20px #FFD70099, 0 0 80px 40px #fff70044;
+    background: rgba(255,255,224,0.2);
+}
+
+@keyframes glowTitle {
+    0% {
+        text-shadow: 0 0 20px #FFD700, 0 0 40px #ffec8b, 0 0 60px #fff700, 2px 2px 8px #000;
+        box-shadow: 0 0 40px 10px #FFD70044;
+    }
+    100% {
+        text-shadow: 0 0 40px #FFD700, 0 0 80px #ffec8b, 0 0 120px #fff700, 2px 2px 16px #000;
+        box-shadow: 0 0 80px 30px #FFD70099;
+    }
+}
+
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+/* General body styles */
+body {
+    background-color: #000000; /* A soft, neutral background */
+    margin: 0;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    /* padding-top: -30; */
+    position: relative;
+    z-index: 1;
 }
 
-.botones{
-    padding: 9px;
-    border-radius: 80px;
-    background-color: transparent;
-    border: none;
+/* Main collage container */
+.collage-container {
+    width: 100%;
+    max-width: 1000px; /* Limits the width for large screens */
+    margin: 10px auto 40px auto; /* Deja espacio arriba para el título fijo */
+    padding: 20px;
+    position: relative;
+    z-index: 2;
 }
 
-.botones a{
-    background-color: #0a2be9;
-    padding: 9px;
-    border-radius: 80px;
-    -webkit-border-radius: 80px;
-    -moz-border-radius: 80px;
-    -ms-border-radius: 80px;
-    -o-border-radius: 80px;
-
+/* The organized grid */
+.collage-grid {
+    display: grid;
+    /* Creates a responsive grid with columns that automatically adjust */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px; /* Adds space between the photos */
 }
 
-.botones a:focus{
-    background-color: rgb(50, 194, 194);
+/* Styles for each image */
+.collage-img {
+    width: 100%;
+    height: 200px; /* Sets a consistent height for all images */
+    object-fit: cover; /* Ensures images fill their space without distortion */
+    border-radius: 10px; /* Adds rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.greetings{
-    font-size: 7rem;
-    font-weight: 900;
-}
-.greetings > span{
-    animation: glow 2.5s ease-in-out infinite;
-}
-@keyframes glow{
-    0%, 100%{
-        color: #fff;
-        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
-    }
-    10%, 90%{
-        color: #111;
-        text-shadow: none;
-    }
-}
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
-}
-.greetings > span:nth-child(6){
-    animation-delay: 1s;
+/* Efecto de agrandar al pasar el mouse (desktop) */
+.collage-img:hover {
+    transform: scale(2.1);
+    z-index: 2;
 }
 
-.description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* Efecto de agrandar al tocar (móvil) */
+.collage-img:active {
+    transform: scale(1.1);
+    z-index: 2;
 }
 
-.button a{
-    text-decoration: none;
-    font-size: 1rem;
-    color: #111;
-}
-
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 4rem;
-        font-weight: 800;
-        text-align: center;
-    }
-    .description{
-        font-size: 2rem;
-    }
-    
-    .button a{
-        font-size: 1rem;
-    }
+/* Hides the background collage to avoid conflicts */
+.collage-bg, .collage-rect {
+    display: none;
 }

@@ -11,22 +11,155 @@
 </head>
 
 <body>
-    <div class="greetings">
-        <span>H</span>
-        <span>o</span>
-        <span>l</span>
-        <span>a</span>
-        <span>!</span>
-    </div>
-    <div class="description">
-        <span>ESTE DETALLE ES PARA TI :)</span>
-    </div>
-    <div class="button">
-        <button class="botones">
-            <a href="flower.html" style="color: #fff;">CLICK AQUÍ</a>
-        </button>
-    </div>
+    <audio src="sound/Manuel Medrano - La Distancia (Video Oficial).mp3" autoplay loop hidden></audio>
+    <header>
+        <h1 class="main-title">Feliz dia mi amor</h1>
+        
+    </header>
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="img/flores.mp4" type="video/mp4">
+    </video>
+    <div class="flower-hardcore-container flower-left">
+            <div class="flower-main">
+                <div class="center-core"></div>
+                <div class="petal-group">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="petal petal-5"></div>
+                    <div class="petal petal-6"></div>
+                    <div class="petal petal-7"></div>
+                    <div class="petal petal-8"></div>
+                </div>
+            </div>
+            <div class="stem-hardcore">
+                <div class="leaf-left"></div>
+                <div class="leaf-right"></div>
+            </div>
+        </div>
+        <div class="collage-container">
+                <div class="collage-grid">
+                        <img src="img/foto1.jpg" class="collage-img" alt="Foto 1">
+                        <img src="img/foto2.jpg" class="collage-img" alt="Foto 2">
+                        <img src="img/foto3.jpg" class="collage-img" alt="Foto 3">
+                        <img src="img/foto4.jpg" class="collage-img" alt="Foto 4">
+                        <img src="img/foto5.jpg" class="collage-img" alt="Foto 5">
+                        <img src="img/1fotito-n.jpg" class="collage-img" alt="Foto 6">
+                        <img src="img/2fotito-n.jpg" class="collage-img" alt="Foto 7">
+                            <img src="img/ChatGPT Image 6 sept 2025, 20_33_42.png" class="collage-img" alt="Foto 8">
+                            <img src="img/ChatGPT Image 6 sept 2025, 20_36_14.png" class="collage-img" alt="Foto 9">
+                            <img src="img/olenka1.jpg" class="collage-img" alt="Foto 8">
+                            <img src="img/olenka2.jpg" class="collage-img" alt="Foto 9">
+                            <img src="img/paulo1.jpg" class="collage-img" alt="Foto 8">
+                            <img src="img/surco.jpg" class="collage-img" alt="Foto 9">
+                             <img src="img/foto6.jpg" class="collage-img" alt="Foto 10">
+                            <img src="img/foto7.jpg" class="collage-img" alt="Foto 11">
+                </div>
+        </div>
+<div>
+    <h1 class="carta-titulo"> mi linda carta</h1>
+      
+</div>
+          
+<div class="contenedor">
+            <div class="envoltura-sobre">
+                <div class="sobre">
+                    <div class="carta">
+                        <div class="contenido">
+                            <strong>Querida cachetona hermosa</strong>
+                            <p>
+                               hola hoy es un dia muy especial y quiero darte y aprovechar en darte esta sorpresa y lo hice con mucho cariño y amor y aprecio no sabes lo tanto que te amo bb y este detalle pequeño espero que te guste y te encante yo si recuerdo algunas cosas que quieres y pues aqui lo tienes tu pagina con este lindo regalo ejeje feliz 3 meses bb te amo mucho si ya sabes esfuerzate,avivate,piensa en grande ten mente tu futuro y tus ganas de vivirla y yo siempre estare ahi para poder ayudarte en tu camino siempre te dare la mano cuando pueda amor y siempre estare ahi amor te amo mucho si besitos eres mi marie jaine de otro universo y yo tu spiderman que estara siempre para salvarte de los malos ratos bb besitos te amo 🥺🥺💗💓💗💗💗💓
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="corazon"></div>
+                <div class="solapa-derecha"></div>
+                <div class="solapa-izquierda"></div>
+            </div>
+            </div>
+            <!-- Flecha decorativa -->
+            <div style="width:100%;text-align:center;margin:40px 0 20px 0;">
+                <span style="font-size:60px;display:inline-block;animation: bounceArrow 1s infinite;">⬇️</span>
+            </div>
+            <!-- Botón grande -->
+            <div style="width:100%;text-align:center;margin-bottom:40px;">
+                <button id="go-flowers" class="boton-animado">
+                    ¡Apriétame para ver las flores! 💐
+                </button>
+            </div>
+            <script>
+            document.getElementById('go-flowers').onclick = function() {
+                window.location.href = 'flower.html';
+            };
+            </script>
+            <style>
+            .boton-animado {
+                font-size: 2.2rem;
+                padding: 24px 70px;
+                border-radius: 20px;
+                background: linear-gradient(90deg, #FFD700 60%, #ff69b4 100%);
+                color: #222;
+                font-weight: bold;
+                box-shadow: 0 4px 24px #FFD70088, 0 0 40px #ff69b488;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+                animation: pulseBtn 1.2s infinite alternate;
+                position: relative;
+            }
+            .boton-animado:hover {
+                transform: scale(1.08) rotate(-2deg);
+                box-shadow: 0 0 60px 20px #FFD70099, 0 0 80px 40px #ff69b488;
+                background: linear-gradient(90deg, #ff69b4 40%, #FFD700 100%);
+            }
+            @keyframes pulseBtn {
+                0% { box-shadow: 0 4px 24px #FFD70088, 0 0 40px #ff69b488; }
+                100% { box-shadow: 0 8px 40px #FFD700cc, 0 0 80px #ff69b4cc; transform: scale(1.04); }
+            }
+            @keyframes bounceArrow {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(20px); }
+            }
+            </style>
+        </div>
 
+<script>
+const envoltura = document.querySelector(".envoltura-sobre");
+const carta = document.querySelector(".carta");
+
+document.addEventListener("click", (e) => {
+    if (e.target.matches(".sobre") || 
+        e.target.matches(".solapa-derecha") ||
+        e.target.matches(".solapa-izquierda") ||
+        e.target.matches(".corazon")) {
+        envoltura.classList.toggle("abierto");
+        envoltura.classList.add("desactivar-sobre")
+
+        if (!carta.classList.contains("abierta")) {
+            setTimeout(() => {
+                carta.classList.add("mostrar-carta");
+
+                setTimeout(() => {
+                    carta.classList.remove("mostrar-carta");
+                    carta.classList.add("abierta");
+                }, 500);
+            }, 1000);
+        }
+    } else if (e.target.matches(".envoltura-sobre *")) {
+        envoltura.classList.remove("abierto");
+        envoltura.classList.remove("desactivar-sobre")
+        if (carta.classList.contains("abierta")) {
+            carta.classList.add("cerrando-carta");
+
+            setTimeout(() => {
+                carta.classList.remove("cerrando-carta");
+                carta.classList.remove("abierta")
+            }, 500);
+        }
+    }
+})
+</script>
 </body>
-
 </html>
